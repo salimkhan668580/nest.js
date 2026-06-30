@@ -4,12 +4,16 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AdminModule } from './admin/admin.module';
+import { CartModule } from './cart/cart.module';
 
 @Module({
   imports: [
     AuthModule,
     ConfigModule.forRoot(),
     MongooseModule.forRoot('mongodb://localhost:27017/doc-nest'),
+    AdminModule,
+    CartModule,
   ],
   controllers: [AppController],
   providers: [AppService],

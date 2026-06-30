@@ -55,3 +55,21 @@ export class CreateUserDto {
   @IsBoolean()
   isActive?: boolean;
 }
+
+export class ChangePasswordDto {
+  @IsString()
+  newPassword: string;
+
+  @IsString()
+  confirmPassword: string;
+
+  @IsString()
+  oldPassword: string;
+}
+export class LoginDto {
+  @IsString()
+  email: string;
+
+  @IsString()
+  password: string;
+}
