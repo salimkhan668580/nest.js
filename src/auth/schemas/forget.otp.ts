@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema()
-export class forgetOtp {
+export class ForgetOtp {
   @Prop()
   email: string;
 
@@ -15,4 +15,4 @@ export class forgetOtp {
   createdAt: Date;
 }
 
-export const forgetOtpSchema = SchemaFactory.createForClass(forgetOtp);
+export const ForgetOtpSchema = SchemaFactory.createForClass(ForgetOtp);
