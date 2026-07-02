@@ -13,7 +13,6 @@ import { Model } from "mongoose";
 import * as bcrypt from "bcrypt";
 import { JwtService } from "@nestjs/jwt";
 import { ForgetOtp } from "./schemas/forget.otp";
-import e from "express";
 
 @Injectable()
 export class AuthService {

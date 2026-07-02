@@ -3,12 +3,12 @@ import {
   ExecutionContext,
   Injectable,
   UnauthorizedException,
-} from '@nestjs/common';
-import { Model } from 'mongoose';
-import { JwtService } from '@nestjs/jwt';
-import { Request } from 'express';
-import { User, UserDocument } from './schemas/user.schema';
-import { InjectModel } from '@nestjs/mongoose';
+} from "@nestjs/common";
+import { Model } from "mongoose";
+import { JwtService } from "@nestjs/jwt";
+import { Request } from "express";
+import { User, UserDocument } from "./schemas/user.schema";
+import { InjectModel } from "@nestjs/mongoose";
 
 interface JwtPayload {
   sub: string;
@@ -36,10 +36,10 @@ export class AuthGuard implements CanActivate {
       // is the key that was passed in the JwtModule
       const payload = await this.jwtService.verifyAsync<JwtPayload>(token);
       if (!payload || !payload.sub) {
-        throw new UnauthorizedException('Invalid token');
+        throw new UnauthorizedException("Invalid token");
       }
       const userData = await this.userModel.findById(payload.sub);
-      request['user'] = userData as User;
+      request["user"] = userData as User;
     } catch {
       throw new UnauthorizedException();
     }
@@ -47,8 +47,8 @@ export class AuthGuard implements CanActivate {
   }
 
   private extractTokenFromHeader(request: Request): string | undefined {
-    const [type, token] = request.headers.authorization?.split(' ') ?? [];
+    const [type, token] = request.headers.authorization?.split(" ") ?? [];
 
-    return type === 'Bearer' ? token : undefined;
+    return type === "Bearer" ? token : undefined;
   }
 }
